@@ -14,7 +14,7 @@ A modern, futuristic calculator built using **HTML, CSS, and JavaScript**.
 - JavaScript (Vanilla)
 
 ## 👨‍💻 Author
-**Soham Patil © 2025**
+**Soham Patil**
 
 ## 🌐 Live Demo
 https://soham-patil-tech.github.io/futuristic-calculator/
