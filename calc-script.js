@@ -31,7 +31,7 @@ function playClick() {
 }
 
 /* Button handler */
-function press(value) {if (value === "." && result.value.includes(".")) return;
+function press(value) 
 
     playClick();
 
@@ -93,6 +93,7 @@ document.addEventListener("keydown", function (event) {
         press("AC");
     }
 });
+
 
 
 
