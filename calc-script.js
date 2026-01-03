@@ -70,3 +70,19 @@ document.addEventListener("keydown", e => {
     if (e.key === "Backspace") press("DEL");
     if (e.key === "Escape") press("AC");
 });
+document.addEventListener("keydown", function (event) {
+    const key = event.key;
+
+    if (!isNaN(key) || key === ".") {
+        press(key);
+    } else if (["+", "-", "*", "/"].includes(key)) {
+        press(key);
+    } else if (key === "Enter") {
+        press("=");
+    } else if (key === "Backspace") {
+        press("DEL");
+    } else if (key.toLowerCase() === "c") {
+        press("AC");
+    }
+});
+
