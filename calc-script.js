@@ -1,3 +1,10 @@
+window.onload = function () {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+        document.body.className = savedTheme;
+    }
+};
+
 const display = document.getElementById("result");
 
 /* Web Audio API click sound (NO MP3) */
@@ -85,4 +92,5 @@ document.addEventListener("keydown", function (event) {
         press("AC");
     }
 });
+
 
