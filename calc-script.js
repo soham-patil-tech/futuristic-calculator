@@ -53,8 +53,10 @@ function press(value) {
 /* Theme toggle */
 function toggleTheme() {
     document.body.classList.toggle("dark");
-    document.body.classList.toggle("cyber");
-    localStorage.setItem("theme", document.body.className);
+    document.body.classList.toggle("light");
+
+    const btn = document.getElementById("themeBtn");
+    btn.textContent = document.body.classList.contains("dark") ? "🌙" : "☀️";
 }
 
 /* Keyboard support (SINGLE listener – no double input) */
@@ -64,3 +66,4 @@ document.addEventListener("keydown", (e) => {
     else if (e.key === "Backspace") press("DEL");
     else if (e.key === "Escape") press("AC");
 });
+
