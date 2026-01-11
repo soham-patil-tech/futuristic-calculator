@@ -108,3 +108,53 @@ body.cyber {
     letter-spacing: 1px;
     color: rgba(255,255,255,0.6);
 }
+
+
+/* Smooth overall feel */
+* {
+    transition: all 0.25s ease;
+}
+
+/* Calculator hover glow */
+.calculator:hover {
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+}
+
+/* Display text */
+.display input {
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+    color: #00f7ff;
+}
+
+/* Button press animation */
+.btn:active {
+    transform: scale(0.92);
+}
+
+/* Operator buttons glow */
+.op {
+    color: #ff9f0a;
+}
+
+.op:hover {
+    box-shadow: 0 0 10px rgba(255, 159, 10, 0.6);
+}
+
+/* Equal button special glow */
+.equal {
+    background: linear-gradient(135deg, #00f7ff, #0066ff);
+    color: #000;
+}
+
+.equal:hover {
+    box-shadow: 0 0 15px rgba(0, 247, 255, 0.8);
+}
+
+/* Footer subtle */
+.footer {
+    font-size: 0.75rem;
+    opacity: 0.7;
+}
+
+
