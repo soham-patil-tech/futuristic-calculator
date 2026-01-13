@@ -109,41 +109,80 @@ function toggleTheme() {
    KEYBOARD SUPPORT
 ========================= */
 document.addEventListener("keydown", (e) => {
-    const key = e.key.toLowerCase();
+    const key = e.key;
+    const code = e.code;
 
-    // PREVENT browser behavior for calculator keys
+    // Prevent default behavior for calculator keys
     if (
-        "0123456789+-*/.%ad".includes(key) ||
-        key === "enter" ||
-        key === "escape" ||
-        key === "backspace"
+        "0123456789+-*/.%adAD".includes(key) ||
+        code.startsWith("Numpad") ||
+        key === "Enter" ||
+        key === "Backspace" ||
+        key === "Escape"
     ) {
         e.preventDefault();
     }
 
-    // Numbers & operators
-    if ("0123456789+-*/.%".includes(key)) {
+    /* =========================
+       NUMBERS (Top row + Numpad)
+    ========================= */
+    if (!isNaN(key)) {
         press(key);
         return;
     }
 
-    // Shortcuts
-    if (key === "a" || key === "escape") {
+    /* =========================
+       OPERATORS
+    ========================= */
+    if ("+-*/.%".includes(key)) {
+        press(key);
+        return;
+    }
+
+    /* =========================
+       NUMPAD OPERATORS
+    ========================= */
+    switch (code) {
+        case "NumpadAdd":
+            press("+");
+            return;
+        case "NumpadSubtract":
+            press("-");
+            return;
+        case "NumpadMultiply":
+            press("*");
+            return;
+        case "NumpadDivide":
+            press("/");
+            return;
+        case "NumpadDecimal":
+            press(".");
+            return;
+        case "NumpadEnter":
+            press("=");
+            return;
+    }
+
+    /* =========================
+       SHORTCUTS
+    ========================= */
+    if (key === "a" || key === "A" || key === "Escape") {
         press("AC");
         return;
     }
 
-    if (key === "d" || key === "backspace") {
+    if (key === "d" || key === "D" || key === "Backspace") {
         press("DEL");
         return;
     }
 
-    if (key === "enter") {
+    if (key === "Enter") {
         press("=");
         return;
     }
 });
-;
+
+
 
 
 
