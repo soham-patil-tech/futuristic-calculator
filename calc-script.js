@@ -1,14 +1,21 @@
+/* =========================
+   DOM ELEMENTS
+========================= */
 const display = document.getElementById("result");
+const calculator = document.querySelector(".calculator");
+const themeBtn = document.getElementById("themeBtn");
 
-/* Load saved theme */
-window.onload = () => {
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) {
-        document.body.className = savedTheme;
-    }
-};
+/* =========================
+   LOAD SAVED THEME
+========================= */
+window.addEventListener("load", () => {
+    const savedTheme = localStorage.getItem("theme") || "dark";
+    document.body.className = savedTheme;
+});
 
-/* Click sound (Web Audio API – no mp3) */
+/* =========================
+   WEB AUDIO CLICK SOUND
+========================= */
 const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 
 function playClick() {
@@ -28,42 +35,88 @@ function playClick() {
     osc.stop(audioCtx.currentTime + 0.04);
 }
 
-/* Button logic */
+/* =========================
+   HELPER FUNCTIONS
+========================= */
+function isOperator(value) {
+    return "+-*/.%".includes(value);
+}
+
+function calculate(expression) {
+    if (!/^[0-9+\-*/.%() ]+$/.test(expression)) {
+        throw new Error("Invalid Expression");
+    }
+    return Function(`"use strict"; return (${expression})`)();
+}
+
+function showError() {
+    calculator.classList.add("error");
+    setTimeout(() => calculator.classList.remove("error"), 300);
+}
+
+/* =========================
+   MAIN BUTTON LOGIC
+========================= */
 function press(value) {
     playClick();
 
+    // Auto clear after error
+    if (display.value === "Error") {
+        display.value = "";
+    }
+
+    const lastChar = display.value.slice(-1);
+
     if (value === "AC") {
         display.value = "";
-    } 
-    else if (value === "DEL") {
+        return;
+    }
+
+    if (value === "DEL") {
         display.value = display.value.slice(0, -1);
-    } 
-    else if (value === "=") {
+        return;
+    }
+
+    if (value === "=") {
         try {
-            display.value = eval(display.value);
+            display.value = calculate(display.value);
         } catch {
             display.value = "Error";
+            showError();
         }
-    } 
-    else {
-        display.value += value;
+        return;
     }
+
+    // Prevent double operators
+    if (isOperator(value) && isOperator(lastChar)) return;
+
+    display.value += value;
 }
 
-/* Theme toggle */
+/* =========================
+   THEME TOGGLE
+========================= */
 function toggleTheme() {
-    document.body.classList.toggle("dark");
-    document.body.classList.toggle("light");
+    const newTheme = document.body.classList.contains("dark")
+        ? "cyber"
+        : "dark";
 
-    const btn = document.getElementById("themeBtn");
-    btn.textContent = document.body.classList.contains("dark") ? "🌙" : "☀️";
+    document.body.className = newTheme;
+    localStorage.setItem("theme", newTheme);
 }
 
-/* Keyboard support (SINGLE listener – no double input) */
+/* =========================
+   KEYBOARD SUPPORT
+========================= */
 document.addEventListener("keydown", (e) => {
-    if ("0123456789+-*/.%".includes(e.key)) press(e.key);
-    else if (e.key === "Enter") press("=");
-    else if (e.key === "Backspace") press("DEL");
-    else if (e.key === "Escape") press("AC");
+    if ("0123456789+-*/.%".includes(e.key)) {
+        press(e.key);
+    } else if (e.key === "Enter") {
+        e.preventDefault();
+        press("=");
+    } else if (e.key === "Backspace") {
+        press("DEL");
+    } else if (e.key === "Escape") {
+        press("AC");
+    }
 });
-
