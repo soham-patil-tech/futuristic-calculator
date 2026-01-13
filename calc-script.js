@@ -109,14 +109,31 @@ function toggleTheme() {
    KEYBOARD SUPPORT
 ========================= */
 document.addEventListener("keydown", (e) => {
-    if ("0123456789+-*/.%".includes(e.key)) {
-        press(e.key);
-    } else if (e.key === "Enter") {
-        e.preventDefault();
-        press("=");
-    } else if (e.key === "Backspace") {
-        press("DEL");
-    } else if (e.key === "Escape") {
-        press("AC");
+    const key = e.key.toLowerCase();
+
+    // Numbers & operators
+    if ("0123456789+-*/.%".includes(key)) {
+        press(key);
+        return;
+    }
+
+    // Shortcuts
+    switch (key) {
+        case "enter":
+            e.preventDefault();
+            press("=");
+            break;
+
+        case "a":          // All Clear
+        case "escape":
+            press("AC");
+            break;
+
+        case "d":          // Delete
+        case "backspace":
+            press("DEL");
+            break;
     }
 });
+
+
