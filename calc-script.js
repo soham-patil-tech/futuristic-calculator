@@ -111,6 +111,16 @@ function toggleTheme() {
 document.addEventListener("keydown", (e) => {
     const key = e.key.toLowerCase();
 
+    // PREVENT browser behavior for calculator keys
+    if (
+        "0123456789+-*/.%ad".includes(key) ||
+        key === "enter" ||
+        key === "escape" ||
+        key === "backspace"
+    ) {
+        e.preventDefault();
+    }
+
     // Numbers & operators
     if ("0123456789+-*/.%".includes(key)) {
         press(key);
@@ -118,22 +128,22 @@ document.addEventListener("keydown", (e) => {
     }
 
     // Shortcuts
-    switch (key) {
-        case "enter":
-            e.preventDefault();
-            press("=");
-            break;
+    if (key === "a" || key === "escape") {
+        press("AC");
+        return;
+    }
 
-        case "a":          // All Clear
-        case "escape":
-            press("AC");
-            break;
+    if (key === "d" || key === "backspace") {
+        press("DEL");
+        return;
+    }
 
-        case "d":          // Delete
-        case "backspace":
-            press("DEL");
-            break;
+    if (key === "enter") {
+        press("=");
+        return;
     }
 });
+;
+
 
 
