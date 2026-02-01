@@ -1,63 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Futuristic Neon Calculator</title>
+  <meta charset="UTF-8" />
+  <title>Neon Calculator ⚡</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Mobile responsive -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Favicon -->
-    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2721/2721297.png">
-
-    <!-- Styles -->
-    <link rel="stylesheet" href="calc-style.css">
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2721/2721297.png">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
+<body class="theme-dark">
 
-<body class="dark">
+  <main class="calculator" aria-label="Neon Calculator">
+    <!-- Top Bar -->
+    <header class="top-bar">
+      <span class="brand">NEON•CALC</span>
+      <button id="themeToggle" aria-label="Toggle Theme">🌌</button>
+    </header>
 
-<div class="calculator">
+    <!-- Display -->
+    <section class="display">
+      <input id="display" type="text" readonly aria-label="Calculator Display">
+    </section>
 
-    <div class="top-bar">
-        <button id="themeBtn" class="toggle-btn" onclick="toggleTheme()">🌌</button>
-    </div>
+    <!-- Buttons -->
+    <section class="buttons">
+      <button class="op" data-key="AC">AC</button>
+      <button class="op" data-key="DEL">DEL</button>
+      <button class="op" data-key="%">%</button>
+      <button class="op" data-key="/">÷</button>
 
-    <div class="display">
-        <input type="text" id="result" readonly>
-    </div>
+      <button data-key="7">7</button>
+      <button data-key="8">8</button>
+      <button data-key="9">9</button>
+      <button class="op" data-key="*">×</button>
 
-    <div class="buttons">
-        <button class="btn op" onclick="press('AC')">AC</button>
-        <button class="btn op" onclick="press('DEL')">DEL</button>
-        <button class="btn op" onclick="press('%')">%</button>
-        <button class="btn op" onclick="press('/')">÷</button>
+      <button data-key="4">4</button>
+      <button data-key="5">5</button>
+      <button data-key="6">6</button>
+      <button class="op" data-key="-">−</button>
 
-        <button class="btn" onclick="press('7')">7</button>
-        <button class="btn" onclick="press('8')">8</button>
-        <button class="btn" onclick="press('9')">9</button>
-        <button class="btn op" onclick="press('*')">×</button>
+      <button data-key="1">1</button>
+      <button data-key="2">2</button>
+      <button data-key="3">3</button>
+      <button class="op" data-key="+">+</button>
 
-        <button class="btn" onclick="press('4')">4</button>
-        <button class="btn" onclick="press('5')">5</button>
-        <button class="btn" onclick="press('6')">6</button>
-        <button class="btn op" onclick="press('-')">−</button>
+      <button class="zero" data-key="0">0</button>
+      <button data-key=".">.</button>
+      <button class="equal" data-key="=">=</button>
+    </section>
 
-        <button class="btn" onclick="press('1')">1</button>
-        <button class="btn" onclick="press('2')">2</button>
-        <button class="btn" onclick="press('3')">3</button>
-        <button class="btn op" onclick="press('+')">+</button>
+    <footer>© 2025 Soham Patil</footer>
+  </main>
 
-        <button class="btn zero" onclick="press('0')">0</button>
-        <button class="btn" onclick="press('.')">.</button>
-        <button class="btn equal" onclick="press('=')">=</button>
-    </div>
-
-    <footer class="footer">Soham Patil © 2025</footer>
-</div>
-
-<script src="calc-script.js"></script>
+  <script src="assets/js/app.js"></script>
 </body>
 </html>
-
-
