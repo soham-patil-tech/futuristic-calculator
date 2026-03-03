@@ -21,10 +21,6 @@ Designed with a **cyberpunk aesthetic**, fluid interactions, and keyboard-friend
 - Minimal logic, maximum visual impact  
 - UI-first approach with smooth micro-interactions  
 - Built to feel modern, not basic  
-
-This is more than a calculator —  
-it’s a **frontend UI showcase**.
-
 ---
 
 ## 🛠 Tech Stack
