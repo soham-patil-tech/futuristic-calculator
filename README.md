@@ -26,7 +26,7 @@ Designed with a **cyberpunk aesthetic**, fluid interactions, and keyboard-friend
 ## 🛠 Tech Stack
 
 - **HTML5** – Semantic structure  
-- **CSS3** – Animations, gradients, cyber styling  
+- **CSS3** – Animations, gradients  
 - **Vanilla JavaScript** – Logic & interactivity  
 
 ❌ No frameworks  
