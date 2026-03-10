@@ -30,7 +30,7 @@ Designed with a **cyberpunk aesthetic**, fluid interactions, and keyboard-friend
 - **Vanilla JavaScript** – Logic & interactivity  
 
 ❌ No frameworks  
-❌ No libraries  
+
 
 ---
 
