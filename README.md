@@ -11,7 +11,7 @@ Designed with a **cyberpunk aesthetic**, fluid interactions, and keyboard-friend
 - ⌨️ **Typing Animation Display** – Smooth, futuristic input feedback  
 - 🌗 **Dark / Cyber Theme Toggle** – Switch themes seamlessly  
 - 🖱️ **Keyboard Support** – Fully operable via keyboard  
-- 🎨 **Futuristic UI Design** – Neon glow, cyber visuals, and clean layout  
+- 🎨 **Futuristic UI Design** – cyber visuals, and clean layout  
 - ⚡ **Instant Calculations** – Fast, responsive interactions  
 
 ---
